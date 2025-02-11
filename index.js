@@ -14,7 +14,8 @@ io.on('connection', (socket) => {
     console.log("a user connected...");
 
     count++;
-    io.sockets.emit('broadcast', {message: count+" users connected"});
+    socket.emit('broadcast', {message: "Hey, Welcome!!!"});
+    socket.broadcast.emit('broadcast', {message: count+" users connected"});
 
     socket.on('disconnect', () => {
         console.log("a user disconnected...");
