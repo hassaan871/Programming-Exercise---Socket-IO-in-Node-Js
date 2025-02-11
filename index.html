@@ -8,13 +8,11 @@
     <p>Hello World</p>
     <script>
         const socket = io();
-        // socket.on('message', (data)=>{
-        //     document.write(data);
-        // });
-        socket.on('myCustomEvent', ({description})=>{
-            document.write(description);
+        
+        socket.on('broadcast', ({message})=>{
+            document.body.innerHTML = '';
+            document.write(message);
         });
-        socket.emit('myCustomMessageFromClientSide', "a custom message from client side!!!");
     </script>
 </body>
 </html>
